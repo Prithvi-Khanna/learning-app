@@ -93,7 +93,7 @@ const SignInScreen: React.FC = () => {
               }}
             />
             <Text style={{maxWidth: '90%', alignItems: 'center'}}>
-              <Text>
+              <Text style={{color: '#413D3D'}}>
                 By signing up, you agree to our{' '}
                 <Text style={{color: '#0469DE'}}>terms of service</Text> and{' '}
                 <Text style={{color: '#0469DE'}}>privacy policy.</Text>

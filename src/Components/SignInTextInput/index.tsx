@@ -22,6 +22,7 @@ const SignInTextInput = ({
     <View style={{justifyContent: 'space-between'}}>
       <TextInput
         multiline={multiline}
+        placeholderTextColor={'#B5B5C3'}
         maxLength={30}
         secureTextEntry={isPasswordTrue}
         value={value}
@@ -34,6 +35,7 @@ const SignInTextInput = ({
           paddingHorizontal: 20,
           fontSize: 16,
           paddingVertical: multiline ? 16 : 0,
+          color: '#413D3D',
         }}
       />
       {isHelperText ? (

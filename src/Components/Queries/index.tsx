@@ -38,6 +38,7 @@ const Queries = () => {
           multiline
         />
         <TouchableOpacity
+          disabled={!query}
           onPress={handleSubmitQuery}
           style={{
             height: 36,
@@ -50,8 +51,15 @@ const Queries = () => {
             width: '40%',
             alignSelf: 'flex-end',
             marginTop: 14,
+            opacity: query ? 1 : 0.5,
           }}>
-          <Text style={{color: '#FFF', fontWeight: '600'}}>Submit Query</Text>
+          <Text
+            style={{
+              color: '#FFF',
+              fontWeight: '600',
+            }}>
+            Submit Query
+          </Text>
         </TouchableOpacity>
       </View>
       {queriesArray.length ? (
@@ -62,7 +70,13 @@ const Queries = () => {
             flex: 1,
             padding: 20,
           }}>
-          <Text style={{fontSize: 16, fontWeight: '600', marginBottom: 20}}>
+          <Text
+            style={{
+              fontSize: 16,
+              fontWeight: '600',
+              marginBottom: 20,
+              color: '#464E5F',
+            }}>
             Asked Queries
           </Text>
           {queriesArray.map(queryAsked => (

@@ -55,8 +55,14 @@ const CourseDetails = () => {
     }
   }, [selectedCourse]);
 
+  const handleTabPress = ({route}) => {
+    const tabIndex = routes.findIndex(r => r.key === route.key);
+    setIndex(tabIndex);
+  };
+
   const renderTabBar = props => (
     <TabBar
+      onTabPress={handleTabPress}
       {...props}
       indicatorStyle={{
         backgroundColor: '#0469DE',
@@ -64,33 +70,10 @@ const CourseDetails = () => {
       }}
       style={{
         backgroundColor: '#F2F3F7',
-        width: '60%',
-        marginHorizontal: 20,
+        width: '100%',
+        paddingVertical: 8,
       }}
-      renderTabBarItem={({route}) => {
-        console.log('ROTOT', route);
-        return (
-          <TouchableOpacity
-            onPress={() => {
-              setIndex(route.key === 'first' ? 0 : 1);
-            }}
-            style={{
-              height: 32,
-              width: '50%',
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              paddingLeft: 20,
-            }}>
-            <Image
-              style={{width: 20, height: 20}}
-              resizeMode="contain"
-              source={route.icon}
-            />
-            <Text>{route.title}</Text>
-          </TouchableOpacity>
-        );
-      }}
+      labelStyle={{color: '#0469DE', fontWeight: '600'}}
     />
   );
 
@@ -190,7 +173,9 @@ const CourseDetails = () => {
             marginTop: 14,
             marginBottom: 10,
           }}>
-          <Text style={{fontWeight: '600'}}>{selectedCourse?.name}</Text>
+          <Text style={{fontWeight: '600', color: '#464E5F'}}>
+            {selectedCourse?.name}
+          </Text>
           <View style={{flexDirection: 'row'}}>
             <TouchableOpacity>
               <Text
